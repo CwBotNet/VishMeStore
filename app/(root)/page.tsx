@@ -1,10 +1,25 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+
+import { Modal } from "@/components/ui/modal";
+import { useStoreModel } from "@/hooks/use-store-model";
+import { useEffect } from "react";
+
+export default function SetupPage() {
+  const onOpen = useStoreModel((state) => state.onOpen)
+  const isOpen = useStoreModel((state) => state.isOpen)
+
+
+  useEffect(() => {
+    if (!isOpen) {
+      onOpen()
+    }
+  }, [onOpen, isOpen])
+
   return (
-    <>
-      <h1>protected route</h1>
-    </>
+    <div className="p-4">
+      Root Page
+
+    </div>
   );
 }
