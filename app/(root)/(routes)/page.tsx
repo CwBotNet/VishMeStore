@@ -16,10 +16,5 @@ export default function SetupPage() {
     }
   }, [onOpen, isOpen])
 
-  return (
-    <div className="p-4">
-      Root Page
-
-    </div>
-  );
+  return null
 }
